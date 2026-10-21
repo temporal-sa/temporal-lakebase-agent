@@ -115,6 +115,8 @@ The control never shells into a container and does not need Kubernetes
 credentials. Use the worker control in an isolated crashable environment when
 other users may share the base deployment.
 
+To present the demo, follow [RUNBOOK.md](RUNBOOK.md): the walkthrough beat by beat, and where in the code each part happens.
+
 ## Local development
 
 Prerequisites: Python 3.11+, Node.js 22.12+, `uv`, and a reachable Temporal server.
