@@ -887,6 +887,7 @@ def test_runtime_config_uses_runtime_temporal_values(monkeypatch) -> None:
     from lakebase_agentworkflow import api as api_module
 
     monkeypatch.setenv("TEMPORAL_UI_URL", "https://cloud.temporal.io/")
+    monkeypatch.delenv("TEMPORAL_UI_NAMESPACE", raising=False)
     monkeypatch.setenv("TEMPORAL_NAMESPACE", "tmprl-dem-cld-lakebase-agent.a2dd6")
     monkeypatch.setenv("DEMO_CONTROLS_ENABLED", "true")
 
@@ -895,6 +896,10 @@ def test_runtime_config_uses_runtime_temporal_values(monkeypatch) -> None:
     assert response.temporal_ui_url == "https://cloud.temporal.io"
     assert response.temporal_namespace == "tmprl-dem-cld-lakebase-agent.a2dd6"
     assert response.demo_controls_enabled is True
+
+    monkeypatch.setenv("TEMPORAL_UI_NAMESPACE", "lakebase-agent")
+
+    assert api_module.runtime_config().temporal_namespace == "lakebase-agent"
 
 
 def test_worker_crash_control_starts_temporal_workflow(monkeypatch) -> None:

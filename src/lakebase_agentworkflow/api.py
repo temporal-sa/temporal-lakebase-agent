@@ -141,7 +141,10 @@ def runtime_config() -> RuntimeConfigResponse:
         temporal_ui_url=(
             os.getenv("TEMPORAL_UI_URL", "http://localhost:8233").rstrip("/")
         ),
-        temporal_namespace=os.getenv("TEMPORAL_NAMESPACE", "default"),
+        # The demo platform names the UI's namespace; it can differ from the connection's.
+        temporal_namespace=(
+            os.getenv("TEMPORAL_UI_NAMESPACE") or os.getenv("TEMPORAL_NAMESPACE", "default")
+        ),
         demo_controls_enabled=env_truthy("DEMO_CONTROLS_ENABLED"),
     )
 
