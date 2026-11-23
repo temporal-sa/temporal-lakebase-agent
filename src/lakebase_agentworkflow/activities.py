@@ -654,6 +654,8 @@ async def _call_openai(request: ModelRequest) -> ModelDecision:
             messages=messages,
             tools=tools,
             temperature=0.2,
+            # gpt-6-luna takes Chat Completions tools only with reasoning off.
+            reasoning_effort="none",
         )
     except AuthenticationError as exc:
         raise ApplicationError(

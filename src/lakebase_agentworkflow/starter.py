@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--loan-purpose", required=True)
     parser.add_argument("--max-turns", default=8, type=int)
     parser.add_argument("--run-id", default=None)
-    parser.add_argument("--model", default=os.getenv("AGENT_MODEL", "gpt-4.1-mini"))
+    parser.add_argument("--model", default=os.getenv("AGENT_MODEL", "gpt-6-luna"))
     return parser.parse_args()
 
 

@@ -50,7 +50,7 @@ class AgentRequest(BaseModel):
     applicant_id: str = Field(..., min_length=1)
     loan_amount: float = Field(..., gt=0)
     loan_purpose: str = Field(..., min_length=1)
-    model: str = "gpt-4.1-mini"
+    model: str = "gpt-6-luna"
     max_turns: int = Field(default=8, ge=5, le=16)
     demo_model_failure_attempts: int = Field(default=0, ge=0, le=3)
     metadata: dict[str, Any] = Field(default_factory=dict)
@@ -187,7 +187,7 @@ class StartWorkflowRequest(BaseModel):
     applicant_id: str = Field(..., min_length=1)
     loan_amount: float = Field(..., gt=0)
     loan_purpose: str = Field(..., min_length=1)
-    model: str = "gpt-4.1-mini"
+    model: str = "gpt-6-luna"
     max_turns: int = Field(default=8, ge=5, le=16)
     demo_model_failure_attempts: int = Field(default=0, ge=0, le=3)
     metadata: dict[str, Any] = Field(default_factory=dict)

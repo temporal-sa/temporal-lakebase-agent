@@ -114,7 +114,7 @@ export default function App() {
   const [loanAmount, setLoanAmount] = useState(APPLICANTS[0].amount);
   const [loanPurpose, setLoanPurpose] = useState(APPLICANTS[0].purpose);
   const [userId, setUserId] = useState("loan-officer@example.com");
-  const [model, setModel] = useState("gpt-4.1-mini");
+  const [model, setModel] = useState("gpt-6-luna");
   const [loading, setLoading] = useState(true);
   const [starting, setStarting] = useState(false);
   const [startingWithModelFailure, setStartingWithModelFailure] = useState(false);
@@ -225,7 +225,7 @@ export default function App() {
       applicant_id: applicantId,
       loan_amount: loanAmount,
       loan_purpose: loanPurpose,
-      model: model.trim() || "gpt-4.1-mini",
+      model: model.trim() || "gpt-6-luna",
       max_turns: 8,
       demo_model_failure_attempts: demoModelFailureAttempts,
       metadata: { channel: "loan_review_ui" },
